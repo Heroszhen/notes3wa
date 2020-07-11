@@ -8,5 +8,5 @@ git push origin master
 
 if [ $1 = "archive" ]
 then
-    zip ../symfony-default.zip -r * .[^.]* -x "vendor/*"
+    ng build
 fi
