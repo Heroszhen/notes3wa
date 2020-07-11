@@ -1,0 +1,459 @@
+<div id="phpcours">
+    <div>
+        <app-secondnav></app-secondnav>
+    </div>
+    <div class="undernav">
+        <div class="header">
+            <div class="container">
+                PHP
+            </div>
+        </div>
+        <div class="container pt-5 pb-5">
+            <div *ngIf="lesson=='version7'" class="row">
+                <h3 class="col-12 text-center font-weight-bold">Les nouveautés de la version 7.*</h3>
+                <div class="col-12 text-center">
+                    <div class="mb-3">
+                        <a href="{{fileurl}}fifth/php7_nouveaute.pdf" download="Exercice" class="h5" target="_blank">Poly</a>
+                    </div>
+                    <div>
+                        typage, classe anonyme, fonction anonyme, générateur - yield , <a href="{{fileurl}}fifth/trait_php.pdf" target="_blank">trait</a> etc
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="lesson=='solid'" class="row">
+                <h3 class="col-12 text-center font-weight-bold mb-5">S.O.L.I.D</h3>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('0')" class="title">
+                        Polys
+                    </div>
+                    <div *ngIf="mydisplay[0]==true" class="content">
+                        <div class="mb-3">
+                            <a href="{{fileurl}}fifth/SOLID_part2.pdf" download="Exercice" target="_blank">SOLID_part2</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('1')" class="title">
+                        Le principe de la responsabilité unique - Single Responsability Principle (SRP)
+                    </div>
+                    <div *ngIf="mydisplay[1]==true" class="content">
+                        Que faut-il comprendre à travers “la responsabilité unique” ? Pour faire au plus simple, il faut que votre ensemble de codes ne sache faire qu’une seule chose , c’est à dire qu’une class ne doit s’occuper que d’une seule partie du code, ce dont pourquoi elle existe.
+                        <div class="mt-3">
+                            <a href="{{fileurl}}first/S.O.L.I.D-SRP(depart).zip" download="Exercice" target="_blank">Exercice</a>
+                            <br>
+                            <a href="{{fileurl}}first/S.O.L.I.D-SRP(corrige).zip" download="Exercice" target="_blank">Corrigé</a>
+                        </div>
+                        <div>
+                            La classe report ne doit pas contenir les fonctionnalités "conversion en html et en pdf".
+                            Il faut créer 2 autres classes pour ces 2 fonctionnalités.
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('2')" class="title">
+                        Le principe ouvert/fermé  - Open Closed Principle (OCP)
+                    </div>
+                    <div *ngIf="mydisplay[2]==true" class="content">
+                        L’open / close nous dit que : un objet ( en OOP ) doit être ouvert à l’extension et fermé à la modification. L’idée de fond derrière ce principe est la suivante : ajouter de nouvelles fonctionnalités ne devrait pas casser les fonctionnalités déjà existantes.
+                        <div class="mt-3">
+                            <a href="{{fileurl}}first/OpenClosedPrinciple(OCP)-Depart-20200223.zip" download="Exercice">Exercice</a>
+                            <br>
+                            <a href="{{fileurl}}first/S.O.L.I.D-OCP(corrige).zip" download="Exercice">Corrigé</a>
+                        </div>
+                        <div> 
+                            La class ProjectManagement charge code() et test() des 2 classes(programmer et tester), si on veux ajouter la méthode d'une autre classe , genre draw() de painter, il faut modifier le code de ProjectManagement.<br>
+                            Donc il faut implémenter une interface(IWorker) sur les 2 classes(Programmer et tester) avec une méthode imposée et du contenu différent complété dans ces classes.<br> 
+                            Ensuite la classe ProjectManagement n'a qu'à appeler une classe de type IWorker et utiliser sa méthode imposée par cette interface.<br>
+                            Désormais on peut étendre IWorker sans modifier ProjectManagement.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('3')" class="title">
+                        Le principe de substitution de Liskov - Liskov Substitute Principle (LSP)
+                    </div>
+                    <div *ngIf="mydisplay[3]==true" class="content">
+                        Dans certains cas où les classes enfants n'ont pas besoin d'hériter de toutes les méthodes de la classe parent, donc l'héritage n'est plus nécessaire.
+                        <div class="mt-3">
+                            <a href="{{fileurl}}first/LiskovSubstitutePrinciple(LSP)Depart.zip" download="Exercice">Exercice</a>
+                            <br>
+                            <a href="{{fileurl}}first/S.O.L.I.D-LSP(corrige).zip" download="Exercice">Corrigé</a>
+                        </div>
+                        <div>
+                            La class Ostrich ne peut pas hériter de la méthode fly() de la class parent Bird, car l'autruche ne sait pas voler, donc l'héritage n'est plus utile dans ce cas. 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('4')" class="title">
+                        Le principe de ségrégation des interfaces - Interface Segregation Principle (ISP)
+                    </div>
+                    <div *ngIf="mydisplay[4]==true" class="content">
+                        Aucun client ne devrait dépendre de méthodes qu'il n'utilise pas. Il faut donc diviser les interfaces volumineuses en plus petites plus spécifiques, de sorte que les clients n'ont accès qu'aux méthodes intéressantes pour eux.
+                        <div class="mt-3">
+                            <a href="{{fileurl}}first/InterfaceSegregationPrinciple(ISP)-Depart.zip" download="Exercice">Exercice</a>
+                            <br>
+                            <a href="{{fileurl}}first/S.O.L.I.D-ISP(corrige).zip" download="Exercice">Corrigé</a>
+                        </div>
+                        <div>
+                            Class book n'ont pas besoin de applyDiscount($discount), applyPromotionalCode($code) et setColor($color), Class Tshort n'ont pas besoin de setPreviewPages($pdf), donc l'interface IItem ne convient pas à ces 2 classes, il faut découper cette interface pour séparer ses méthodes.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('5')" class="title">
+                        Le principe d'inversion des dépendances - Dependency Injection Princip (DIP)
+                    </div>
+                    <div *ngIf="mydisplay[5]==true" class="content">
+                        Donner en paramètre à un objet (une fonction, une méthode) ce dont elle a besoin pour travailler.
+                        <div class="mt-3"></div>
+                        <div>
+                            Par exemple:<br>
+                            -Il y a plusieurs modes de paiement : 3 fois, 5 fois, cb etc,<br>
+                            donc on crée l'interface IPayment pour gérer les différents cas,<br>
+                            ensuite quand class Orderprocessor execute un paiement, on injecte  un mode de type IPayment 
+                            -on doit pouvoir ajouter des produits(book, t-shirt, magazine) dans order pour les stocker,
+                            donc on crée une interface IProduit et l'implémente sur ces classes(book, t-shirt, magazine et),<br>
+                            quand on veux stocker un produit, on en injecte un de type IProduit dans class Order.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="lesson=='composer'" class="row">
+                <h3 class="col-12 text-center font-weight-bold mb-5">Composer</h3>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('0')" class="title">
+                        Installation
+                    </div>
+                    <div *ngIf="mydisplay[0]==true" class="content">
+                        Composer est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d'installer les bibliothèques dont le projet principal a besoin. 
+                        <div class="mt-3">
+                            <a href="https://getcomposer.org/" target="_blank">Télécharger</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('1')" class="title">
+                        PSR-4
+                    </div>
+                    <div *ngIf="mydisplay[1]==true" class="content">
+                        Le PSR-4 est la dernière norme pour l’autoloading qui remplace le PSR-0.
+                        <div class="mt-3"></div>
+                        <div class="row">
+                            <div class="col-md-8 col-lg-6">
+                                <img src="{{fileurl}}first/psr-4.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('2')" class="title">
+                        namespace et use
+                    </div>
+                    <div *ngIf="mydisplay[2]==true" class="content">
+                        La capacité de faire référence à un nom absolu avec un alias ou en important un espace de noms est stratégique. C'est un avantage similaire aux liens symboliques dans un système de fichiers. 
+                        <div class="mt-3"></div>
+                        <div class="row">
+                            <div class="col-md-5 col-lg-4">
+                                <img src="{{fileurl}}second/namespace.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="lesson=='designpatterns'" class="row">
+                <h3 class="col-12 text-center font-weight-bold mb-5">Les Design Patterns</h3>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('0')" class="title">
+                        Observer
+                    </div>
+                    <div *ngIf="mydisplay[0]==true" class="content">
+                        Il est utilisé pour envoyer un signal à des modules qui jouent le rôle d'observateurs.
+                        <div class="mt-3">
+                            <a href="{{fileurl}}first/observateur(depart).zip" download="Exercice">Exercice</a>
+                            <br>
+                            <a href="{{fileurl}}first/observateur(corrige).zip" download="Exercice">corrigé</a>
+                        </div>
+                        <div>
+                            On transforme CurrentWeatherDisplay,DangerousWeatherAlert et TomorrowWeatherDisplay en observateur(IObserver) , une fois qu'une WeatherStation est instanciée, on peut y stocker des observateurs dans le but d'en supprimer sans modifier le code de WeatherStation.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('1')" class="title">
+                        Décorateur
+                    </div>
+                    <div *ngIf="mydisplay[1]==true" class="content">
+                        Ajouter de nouvelles responsabilités à une classe dans le but d'éviter d'avoir de plus en plus de classes(fichiers).
+                        <div class="mt-3">
+                            <a href="{{fileurl}}first/decorateur(depart).zip" download="Exercice">Exercice</a>
+                            <br>
+                            <a href="{{fileurl}}first/decorateur(corrige).zip" download="Exercice">corrigé</a>
+                        </div>
+                        <div>
+                            On a pancake et waffle ces 2 classes, si on veux un pancake au chocolat et une Gaufre au chocolat, on est obligé de créer 2 classes.<br>
+                            Plus on veut de produits, plus on doit créer de classes.<br>
+                            Donc on implémente IMeal sur Pancake et Waffle et crée la classe Chocolate qui peux recevoir un IMeal pour créer de différents produits. <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('2')" class="title">
+                        Singleton
+                    </div>
+                    <div *ngIf="mydisplay[2]==true" class="content">
+                        L’objectif du design pattern Singleton est de restreindre l’instanciation d’une classe à un seul objet.
+                        <div class="mt-3"></div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <img src="{{fileurl}}second/singleton.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('3')" class="title">
+                        Factory
+                    </div>
+                    <div *ngIf="mydisplay[3]==true" class="content">
+                        Ce patron de conception permet de mettre en place une classe qui va se charger d'instancier les classes nécessaires au fonctionnement de votre application. Cette classe permet au code client de se libérer de toute responsabilité (implémentation, configuration et instanciation).<br><br>
+
+                        Ce patron de conception peut être intéressant quand vous devez instancier des objets qui implémentent la même interface ou la même classe abstraite mais qui s'utilisent dans des contextes différents (par exemple une classe pour PostgreSQL, une autre pour MySQL). Il est également utile si on veut centraliser un code qui à la responsabilité de la création d'un objet.
+                        <div class="mt-3"></div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <img src="{{fileurl}}third/factory.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('4')" class="title">
+                        Singleton
+                    </div>
+                    <div *ngIf="mydisplay[4]==true" class="content">
+                        L’objectif du design pattern Singleton est de restreindre l’instanciation d’une classe à un seul objet.
+                        <div class="mt-3"></div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <img src="{{fileurl}}second/singleton.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="lesson=='phpunit'" class="row">
+                <h3 class="col-12 text-center font-weight-bold mb-5">PHPUnit</h3>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('0')" class="title">
+                        Installation
+                    </div>
+                    <div *ngIf="mydisplay[0]==true" class="content">
+                        Le principe d'un test unitaire est très simple : il s'agit d'exécuter du code provenant de l'application à tester et de vérifier que tout s'est bien déroulé comme prévu.<br>
+
+                        Cela signifie en général que vous allez vérifier que la valeur retournée est bien la valeur attendue et/ou que certaines méthodes ont bien été appelées.    
+                        <div class="mt-3">
+                            <a href="https://phpunit.readthedocs.io/fr/latest/installation.html" target="_blank">Documentation</a>
+                            <br>
+                        </div>
+                        <div>
+                            1. <span class="text-info">composer require --dev phpunit/phpunit</span><br>
+                            2. <span class="text-info">créer phpunit.xml à la racine du projet</span>
+                            <div class="row">
+                                <div class="col-md-8 colo-6">
+                                    <a href="{{fileurl}}second/phpunit/phpunit.xml" download="Exercice" target="_blank">
+                                        <img src="{{fileurl}}second/phpunit/phpunit.png">
+                                    </a>
+                                </div>
+                            </div>
+                            3. <span class="text-info">créer un dossier nommé "tests" et y ajouter des classes dont le nom contient "Test" : UserTest.php , ArticleTest.php etc. Le nom des méthodes commencent par "test"</span>
+                            <div class="row">
+                                <div class="col-md-8 colo-6">
+                                    <img src="{{fileurl}}second/phpunit/tests.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('1')" class="title">
+                        Tester
+                    </div>
+                    <div *ngIf="mydisplay[1]==true" class="content">
+                        Commande : vendor/bin/phpunit ou ./vendor/bin/phpunit 
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('2')" class="title">
+                        Exercices
+                    </div>
+                    <div *ngIf="mydisplay[2]==true" class="content">
+                        <div>
+                            <a href="{{fileurl}}fifth/SOLID_PHPUnit.pdf" download="Exercice" target="_blank">
+                                enoncé
+                            </a>
+                            <a href="{{fileurl}}fifth/Cart.zip" download="Exercice" target="_blank">
+                                exo
+                            </a>
+                            <a href="{{fileurl}}fifth/Cart2_testunitaire.zip" download="Exercice" target="_blank">
+                                corrigé
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="lesson=='mongodb'" class="row">
+                <h3 class="col-12 text-center font-weight-bold mb-5">Mongodb</h3>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('0')" class="title">
+                        Présentation
+                    </div>
+                    <div *ngIf="mydisplay[0]==true" class="content">
+                        MongoDB est une base de données NoSQL orientée documents.
+                        <div class="mt-3 mb-2">
+                            <a href="https://www.sitepoint.com/sql-vs-nosql-differences/" target="_blank">SQL vs NOSQL</a>
+                            <br>
+                        </div>
+                        <div>
+                            1. Pas de relation<br>
+                            2. Data Heterogene<br>
+                            3. Big data<br>
+                            4. Scalable(extensible)<br>
+                            5. Données JSON ( Javascript Object Notation )
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('1')" class="title">
+                        Installation
+                    </div>
+                    <div *ngIf="mydisplay[1]==true" class="content">
+                        <div class="mt-3 mb-2">
+                            <a href="https://pecl.php.net/package/mongodb" target="_blank">php_mongodb.dll</a>
+                            <br>
+                        </div>
+                        <div>
+                            1. Installer la base de données mongodb<br>
+                            2. Télécharger PHP : extension mongoDB - php_mongodb.dll<br>
+                            3. Mettre php_mongodb.dll dans xampp/php/ext/ avec les autre fichiers dll<br>
+                            4. Ecrire extension=php_mongodb.dll dans php.ini<br>
+                            5. Installer le client php mongodb dans un projet : <a href="https://packagist.org/packages/mongodb/mongodb" target="_blank">composer require mongodb/mongodb</a><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div (click)="showContent('2')" class="title">
+                        Manipulations en php
+                    </div>
+                    <div *ngIf="mydisplay[2]==true" class="content">
+                        <div class="mt-3 mb-2">
+                            <a href="https://docs.mongodb.com/php-library/v1.6/reference/method/MongoDBCollection-find/" target="_blank">MongoDBCollection-find</a>
+                            <br>
+                            <a href="https://docs.mongodb.com/php-library/v1.6/reference/method/MongoDBCollection-aggregate/" target="_blank">MongoDBCollection-aggregate</a>
+                            <br>
+                        </div>
+                        <div>
+                            1. Connexion:<br>
+                            $client = new \MongoDB\Client('mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false');<br>
+                            $client->db->collection<br><br>
+
+                            2. Select * FROM restaurants<br>
+                            $results = $db->find([]);<br><br>
+
+                            3. Select * FROM restaurants WHERE borough = 'Bronx'<br>
+                            $results = $db->find([ 'borough' => 'Bronx' , 'cuisine' => 'Bakery']);<br><br>
+
+                            4. SELECT name FROM restaurants<br>
+                            $options = [ <br>
+                                'projection' => [ "name" => 1 , "borough" => 1 , "cuisine" => 1],<br>
+                                'sort' => [ 'name' => -1]<br>
+                            ];<br>
+                            $results = $db->find([] , $options);<br><br>
+
+                            5. SELECT name FROM restaurants WHERE borough = 'Bronx' OR borough = 'Brooklyn'<br>
+                            $filter = [ '$or' => <br>
+                                [<br>
+                                    [ 'borough' => 'Bronx' ],<br>
+                                    [ 'borough' => 'Brooklyn' ]<br>
+                                ]<br>
+                                ];<br>
+                            $results = $db->find( $filter , $options );<br><br>
+
+                            6. Aggregation<br>
+                            // SELECT COUNT(id) FROM restaurants WHERE borough ='Brooklyn'<br> 
+                            // SELECT COUNT(id) FROM restaurants WHERE borough ='Brooklyn'  GROUPE BY name<br>
+                            $pipeline = [ <br>
+                                [<br>
+                                    '$match' => [ 'borough' => 'Brooklyn']<br>
+                                ],<br>
+                                [<br>
+                                    '$group' => [ <br>
+                                        '_id' => null, // groupement general<br>
+                                        "count" => [ '$sum' =>  1 ]<br>
+                                    ]<br>
+                                ]<br>
+                            ];<br>
+                            $results = $db->aggregate( $pipeline )->toArray();<br>
+                            echo 'count : ' . $results[0]['count'];<br><br>
+
+                            7. INSERT INTO restaurants( colonnes ..) VALUES ( 'KFC', ... )<br>
+                            $db->insertOne( [ "nom" => "siriphol" , "prenom" => "dany"]);<br><br>
+
+                            8. DELETE FROM restaurants WHERE nom = 'Siriphol'<br>
+                            $db->deleteOne( [ "nom" => "siriphol" ]);<br>
+                            $db->deleteMany( [ "borough" => "Brooklyn" ]);<br><br>
+
+                            9. UPDATE FROM restaurants SET nom = "S" WHERE nom = "Siriphol"<br>
+                            $db->updateOne(<br>
+                                [ 'restaurant_id' =>  '30075445' ],<br>
+                                [ '$set' => [ 'cuisine' => 'Pizza' ]]<br>
+                            );<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="lesson=='useful'" class="row justify-content-center">
+                <h3 class="col-12 text-center font-weight-bold mb-5">Outils utiles</h3>
+                <div class="col-12 col-md-5 mt-3"><!--
+                    <div (click)="showContent('0')" class="title"></div>-->
+                    <div class="content h5">
+                        <div class="mb-2">
+                            1. <a href="https://blog.wax-o.com/2014/04/tutoriel-un-guide-pour-bien-commencer-avec-markdown/" target="_blank">Markdown</a>
+                        </div>
+                        <div class="mb-2">
+                            2. PSR en PHP : PHP Standards Recommendations<br>
+                            <a class="mr-2" href="https://www.php-fig.org/psr/psr-1/" target="_blank">psr 1</a> 
+                            <a class="mr-2" href="https://www.php-fig.org/psr/psr-7/" target="_blank">psr 7</a> 
+                            <a class="mr-2" href="https://www.php-fig.org/psr/psr-12/" target="_blank">psr 12</a> 
+                        </div>
+                        <div class="mb-2">
+                            3. <a href="https://packagist.org/packages/nikic/fast-route" target="_blank">FastRoute</a>
+                        </div>
+                        <div class="mb-2">
+                            4. <a href="https://packagist.org/packages/psr/http-message" target="_blank">HTTP Message</a>
+                        </div>
+                        <div class="mb-2">
+                            5. Encryptage de mot de passe<br>
+                            <a class="mr-2" href="https://www.php.net/manual/fr/function.password-hash.php" target="_blank">password_hash</a>
+                            <a class="mr-2" href="https://www.php.net/manual/fr/function.password-verify.php" target="_blank">password_verify</a>
+                        </div>
+                        <div class="mb-2">
+                            6. Redis<br>
+                            <a class="mr-2" href="https://packagist.org/packages/predis/predis" target="_blank">predis/predis</a>
+                            <a class="mr-2" href="https://scotch.io/tutorials/getting-started-with-redis-in-php" target="_blank">redis en php</a>
+                        </div>
+                        <div class="mb-2">
+                            <a class="mr-2" href="https://www.php.net/manual/fr/function.usort.php" target="_blank">usort</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

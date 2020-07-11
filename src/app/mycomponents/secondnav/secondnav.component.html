@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top nav" id="secondnav">
+    <a [routerLink]="['/']" class="navbar-brand" href="#">3WA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="subject == 'php'" class="nav-item">
+          <a (click)="changeLesson('php','version7')" class="nav-link" [ngClass]="{'active': lesson=='version7'}" >Version7</a>
+        </li>
+        <li *ngIf="subject == 'php'" class="nav-item">
+          <a (click)="changeLesson('php','solid')" class="nav-link" [ngClass]="{'active': lesson=='solid'}" >S.O.L.I.D</a>
+        </li>
+        <li *ngIf="subject == 'php'" class="nav-item">
+          <a (click)="changeLesson('php','composer')" class="nav-link" [ngClass]="{'active': lesson=='composer'}" >Composer</a>
+        </li>
+        <li *ngIf="subject == 'php'" class="nav-item">
+          <a (click)="changeLesson('php','designpatterns')" class="nav-link" [ngClass]="{'active': lesson=='designpatterns'}" >Design Patterns</a>
+        </li>
+        <li *ngIf="subject == 'php'" class="nav-item">
+          <a (click)="changeLesson('php','phpunit')" class="nav-link" [ngClass]="{'active': lesson=='phpunit'}" >PHPUnit</a>
+        </li>
+        <li *ngIf="subject == 'php'" class="nav-item">
+          <a (click)="changeLesson('php','mongodb')" class="nav-link" [ngClass]="{'active': lesson=='mongodb'}" >Mongodb</a>
+        </li>
+        <li *ngIf="subject == 'php'" class="nav-item">
+          <a (click)="changeLesson('php','useful')" class="nav-link" [ngClass]="{'active': lesson=='useful'}" >Outils utiles</a>
+        </li>
+        <li *ngIf="subject == 'symfony'" class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+

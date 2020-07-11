@@ -1,0 +1,203 @@
+<div id="portfolio" (ng-scroll)="scrollHandler($event)">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top"  [ngClass]="{'whitenav': whitenav}">
+        <div class="container">
+            <a class="navbar-brand" href="/">ZhenFolio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <div>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/portfolio#home">
+                                Accueil
+                                <div class="borderbottom"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/portfolio#about">
+                                A propos
+                                <div class="borderbottom"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/portfolio#skill">
+                                Compétences
+                                <div class="borderbottom"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/portfolio#folio">
+                                Folio
+                                <div class="borderbottom"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/portfolio#contact">
+                                Contact
+                                <div class="borderbottom"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div *ngIf="bigimg == '1'" id="bigimg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-right close">
+                    <span (click)="closeBigimg('0')">&times;</span>
+                </div>
+                <div class="col-12 text-center">
+                    <img src="{{bigimgurl}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <main><!--
+        <section id="home">
+            <div>Je suis zhen YANG</div>
+            <div>
+                <strong>
+                    <span *ngFor="let item of title">{{item}}</span>
+                </strong>
+                <span>|</span>
+            </div>
+        </section>-->
+        <section id="home">
+            <div>
+                <img src="assets/photos/22-12-47-934_640.webp" alt="">
+            </div>
+            <div>
+                <div>Je suis zhen YANG</div>
+                <div>
+                    <strong>
+                        <span *ngFor="let item of title">{{item}}</span>
+                    </strong>
+                    <span>|</span>
+                </div>
+            </div>
+            
+        </section>
+        <section id="about" class="showtitle">
+            <div class="container showtitle">
+                <div class="row">
+                    <div class="col-md-6 left mb-3">
+                        <div class="mb-4">
+                            <span>Nom: </span>Zhen YANG
+                        </div>
+                        <div class="mb-4">
+                            <span>Profil: </span>Développeur web
+                        </div>
+                        <div class="mb-4">
+                            <span>Email: </span>zhen.yang@hotmail.fr
+                        </div>
+                        <div class="mb-4">
+                            <span>Portable: </span>06 29 66 97 73
+                        </div>
+                        <div class="mb-4">
+                            <span>Linkedin: </span>zhenyang01
+                        </div>
+                    </div>
+                    <div class="col-md-6 right">
+                        <h1 class="mb-4">A propos de moi</h1>
+                        <div class="mb-3 introduction pl-2">
+                            J'ai découvert le html/css et le javascript lors de mes études en licence, depuis je suis passionné par la création de sites et les animations css. Après la licence, ma conseillère de Pôle emploi m'a présenté le domaine du numérique, cela m'a renforcé la détermination de devenir développeur web.
+                        </div>
+                        <div>
+                            <h5>Expérience</h5>
+                            <div class="introduction pl-2">
+                                Développeur web et mobile chez CENTRALINE<br>
+                                Formation "Concepteur - Développeur web" à 3WA<br>
+                                Stage "Développeur web" chez Canaljob<br>
+                                Formation "Intégrateur web et web mobile" à WF3<br>
+                                Lience informatique à Paris 6 <br>
+                                Bac S à LMA
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skill" class="showtitle">
+            <div class="container">
+                <div class="row">
+                    <h1 class="col-12 text-center">Compétences</h1>
+                    <div *ngFor="let item of photos" class="col-6 col-md-3 col-lg-2 mb-4 onephoto">
+                        <img src="assets/photos/{{item}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="separator"></div>
+        <section id="folio" class="showtitle">
+            <div class="container">
+                <div class="row">
+                    <h1 class="col-12 text-center mb-5">Folio</h1>
+                    <div *ngFor="let item of folio" class="col-md-4 d-flex justify-content-center mb-3">
+                        <div class="card" style="width: 98%;">
+                            <img src="assets/photos/{{item.photo}}" class="card-img-top" alt="...">
+                            <div class="card-body pt-5">
+                              <h5 class="card-title">{{item.title}}</h5>
+                              <p class="card-text">
+                                {{item.text}}
+                              </p>
+                              <button type="button" (click)="showBigimg(item.photo)" class="btn btn-primary">Voir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="showtitle">
+            <div class="container showtitle">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6">
+                        <h2 class="mb-4">Envoyez-moi un message</h2>
+                        <form #messageform="ngForm" (ngSubmit)="sendMessage()">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" required  #email="ngModel" placeholder="mail" aria-describedby="emailHelp" [(ngModel)]="message.email">
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="email.errors.required">
+                                    Indiquez votre mail
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="text" class="form-control" id="subject" name="subject" required  #subject="ngModel" placeholder="sujet" [(ngModel)]="message.subject">
+                                <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="subject.errors.required">
+                                    Indiquez votre sujet
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2">
+                                <textarea class="form-control" id="text" name="text" rows="4"  required  #text="ngModel" placeholder="message" [(ngModel)]="message.text"></textarea>
+                                <div *ngIf="text.invalid && (text.dirty || text.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="text.errors.required">
+                                    Ecrivez quelques mots
+                                    </div>
+                                </div>
+                              </div>
+                              <div *ngIf="msgalert != ''" class="mt-2 mb-2">
+                                <span [innerHTML]="msgalert"></span>
+                              </div>
+                            <button type="submit" class="btn btn-primary" [disabled]="messageform.form.invalid">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a href="https://github.com/Heroszhen" target="_blank">
+            <i class="fab fa-github-square"></i>
+        </a>
+        <a href="https://fr.linkedin.com/in/zhenyang01" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    </footer>
+</div>

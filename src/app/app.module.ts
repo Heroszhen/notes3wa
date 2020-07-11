@@ -1,16 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainaveComponent } from './mycomponents/mainave/mainave.component';
+import { HomeComponent } from './mycomponents/home/home.component';
+import { SecondnavComponent } from './mycomponents/secondnav/secondnav.component';
+import { PhpcoursComponent } from './mycomponents/phpcours/phpcours.component';
+import { PortfolioComponent } from './mycomponents/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainaveComponent,
+    HomeComponent,
+    SecondnavComponent,
+    PhpcoursComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

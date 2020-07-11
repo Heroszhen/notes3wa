@@ -1,0 +1,14 @@
+#secondnav li.nav-item{
+    padding-left:5px;
+    padding-right:5px;
+}
+#secondnav li a.nav-link{
+    padding:0;
+}
+
+#secondnav li a.nav-link{
+    cursor: pointer;
+}
+#secondnav li a.active{
+    border-bottom: 3px solid #7451eb;
+}
