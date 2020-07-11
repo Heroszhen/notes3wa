@@ -232,14 +232,27 @@
                 </div>
                 <div class="col-12 mt-3">
                     <div (click)="showContent('4')" class="title">
-                        Singleton
+                        Observer - SplObserver
                     </div>
                     <div *ngIf="mydisplay[4]==true" class="content">
-                        L’objectif du design pattern Singleton est de restreindre l’instanciation d’une classe à un seul objet.
+                        <a href="{{fileurl}}fifth/Observer.pdf" download="Exercice" target="_blank" class="mr-2">
+                            Poly
+                        </a>
+                        <a href="https://www.php.net/manual/fr/class.splsubject.php" target="_blank" class="mr-2">
+                            SplSubject
+                        </a>
+                        <a href="https://www.php.net/manual/fr/class.splobserver.php" target="_blank">
+                            SplObserver
+                        </a>
                         <div class="mt-3"></div>
                         <div class="row">
                             <div class="col-md-8">
-                                <img src="{{fileurl}}second/singleton.png" alt="">
+                                <a href="{{fileurl}}fifth/Observer_sources.zip" download="Exercice" target="_blank">
+                                    exo
+                                </a>
+                                <a href="{{fileurl}}fifth/Observer_corrige.zip" download="Exercice" target="_blank">
+                                    corrigé
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -418,42 +431,52 @@
                 </div>
             </div>
 
-            <div *ngIf="lesson=='useful'" class="row justify-content-center">
+            <div *ngIf="lesson=='useful'" class="row justify-content-center useful">
                 <h3 class="col-12 text-center font-weight-bold mb-5">Outils utiles</h3>
                 <div class="col-12 col-md-5 mt-3"><!--
                     <div (click)="showContent('0')" class="title"></div>-->
                     <div class="content h5">
-                        <div class="mb-2">
+                        <div class="mb-3">
                             1. <a href="https://blog.wax-o.com/2014/04/tutoriel-un-guide-pour-bien-commencer-avec-markdown/" target="_blank">Markdown</a>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-3">
                             2. PSR en PHP : PHP Standards Recommendations<br>
                             <a class="mr-2" href="https://www.php-fig.org/psr/psr-1/" target="_blank">psr 1</a> 
                             <a class="mr-2" href="https://www.php-fig.org/psr/psr-7/" target="_blank">psr 7</a> 
                             <a class="mr-2" href="https://www.php-fig.org/psr/psr-12/" target="_blank">psr 12</a> 
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-3">
                             3. <a href="https://packagist.org/packages/nikic/fast-route" target="_blank">FastRoute</a>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-3">
                             4. <a href="https://packagist.org/packages/psr/http-message" target="_blank">HTTP Message</a>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-3">
                             5. Encryptage de mot de passe<br>
                             <a class="mr-2" href="https://www.php.net/manual/fr/function.password-hash.php" target="_blank">password_hash</a>
                             <a class="mr-2" href="https://www.php.net/manual/fr/function.password-verify.php" target="_blank">password_verify</a>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-3">
                             6. Redis<br>
                             <a class="mr-2" href="https://packagist.org/packages/predis/predis" target="_blank">predis/predis</a>
                             <a class="mr-2" href="https://scotch.io/tutorials/getting-started-with-redis-in-php" target="_blank">redis en php</a>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-3">
+                            7. Sort<br>
                             <a class="mr-2" href="https://www.php.net/manual/fr/function.usort.php" target="_blank">usort</a>
+                        </div>
+                        <div class="mb-3 deploy">
+                            8. Deploiement des tables de mysql en php<br>
+                            <img (click)="swithBigimg($event,1)" src="{{fileurl}}fifth/connectphp.png" alt="" class="pointer">
+                            <img (click)="swithBigimg($event,1)" src="{{fileurl}}fifth/migrationphp.png" alt="" class="pointer">
+                            <img (click)="swithBigimg($event,1)" src="{{fileurl}}fifth/deployphp.png" alt="" class="pointer">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="bigimg==true" class="bigimg">
+        <img (click)="swithBigimg($event,0)" src="{{bigimgurl}}" alt="" class="pointer">
     </div>
 </div>
