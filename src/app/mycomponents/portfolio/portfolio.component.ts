@@ -18,7 +18,7 @@ export class PortfolioComponent implements OnInit {
     {"photo":"mygoddess.png","title":"Alexandra Daddario","text":"Le site a été créé dans le but de m'entraîner sur Angular+PHP+Mysql."},
     {"photo":"canaljob.png","title":"Canaljob","text":"C'est un site de recherche d'emploi et de formation que j'ai refait en Symfony 4 pendant mon stage chez Canaljob."}
   ];
-  bigimg = 0;
+  bigimg:number = 0;
   bigimgurl="";
   message = {
     "email":"",
