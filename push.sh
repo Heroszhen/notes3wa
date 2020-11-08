@@ -8,5 +8,5 @@ git push origin master
 
 if [ $1 = "archive" ]
 then
-    ng build
+    ng build --prod
 fi
