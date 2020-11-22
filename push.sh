@@ -6,7 +6,10 @@ git add -A
 git commit -m "maj"
 git push origin master
 
-if [ $1 = "archive" ]
+if [ -n "$1" ]
 then
-    ng build --prod
+    if [ $1 = "archive" ]
+    then
+        ng build --prod
+    fi
 fi
