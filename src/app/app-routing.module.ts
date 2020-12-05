@@ -8,7 +8,7 @@ import { JscoursComponent } from './mycomponents/jscours/jscours.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'php', component: PhpcoursComponent },
-  { path: 'js', component: JscoursComponent },
+  { path: 'javascript', component: JscoursComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: '**', component: HomeComponent }
 ];
