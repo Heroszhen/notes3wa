@@ -6,6 +6,7 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <!--php-->
         <li *ngIf="subject == 'php'" class="nav-item">
           <a (click)="changeLesson('php','version7')" class="nav-link" [ngClass]="{'active': lesson=='version7'}" >Version7</a>
         </li>
@@ -27,8 +28,9 @@
         <li *ngIf="subject == 'php'" class="nav-item">
           <a (click)="changeLesson('php','useful')" class="nav-link" [ngClass]="{'active': lesson=='useful'}" >Outils utiles</a>
         </li>
-        <li *ngIf="subject == 'symfony'" class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <!--js-->
+        <li *ngIf="subject == 'js'" class="nav-item">
+          <a (click)="changeLesson('js','bases')" class="nav-link" [ngClass]="{'active': lesson=='bases'}" >Les bases</a>
         </li>
       </ul>
     </div>

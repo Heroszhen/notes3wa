@@ -1,0 +1,83 @@
+<div id="jscours">
+    <div>
+        <app-secondnav></app-secondnav>
+    </div>
+    <div class="undernav">
+        <div class="header">
+            <div class="container">
+                JAVASCRIPT
+            </div>
+        </div>
+        <div class="container pt-5 pb-5">
+            <div *ngIf="lesson=='bases'" class="row">
+                <div class="col-12 mb-3 text-center">
+                    <a href="{{fileurl}}ninth/Introduction_ES2015_2016.pdf" download="Exercice" class="h5" target="_blank">Poly</a>
+                </div>
+                <div class="col-12 mb-4">
+                    <h4>import</h4>
+                    <div class="border rounded p-2">
+                        lib/math.js<br>
+                        export function sum (x, y) &#123; return x + y &#125;<br>
+                        export var pi = 3.141593<br><br>
+                        //  someApp.js<br>
+                        import * as math from "lib/math"<br>
+                        console.log("2π = " + math.sum(math.pi, math.pi))<br><br>
+                        
+                        //  otherApp.js<br>
+                        import &#123; sum, pi &#125; from "lib/math"<br>
+                        console.log("2π = " + sum(pi, pi))<br><br>
+
+                        or<br>
+                        export &#123; variable1 as alias1, variable2 as alias2 &#125;;<br><br>
+
+                        In html : <br>
+                        &lt;script type="module"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;import &#123; soustraire,diviser &#125; from './math.js'<br>
+                        &nbsp;&nbsp;&nbsp;let a  = soustraire(4,3);<br>
+                        &nbsp;&nbsp;&nbsp;console.log(a);<br>
+                        &lt;/script&gt;<br>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <h4>Héritage</h4>
+                    <div class="border rounded p-2">
+                        <img src="{{fileurl}}ninth/photos/inheritance.png" alt="">
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <h4>Promise</h4>
+                    <div class="border rounded p-2">
+                        <div class="font-weight-bold">
+                            C’est une “façon” de gérer les traitements asynchrones avec une API unique en utilisant les callbacks.
+                        </div>
+                        <div>
+                            let p = new Promise(function (fulfill, reject) &#123;<br>
+                            &nbsp;&nbsp;&nbsp;setTimeout(() => &#123;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fulfill('ACCOMPLIE !');<br>
+                            &nbsp;&nbsp;&nbsp;&#125;, 300);<br>
+                                &#125;);<br><br>
+                            
+                            p.then((value) => &#123;<br>
+                            &nbsp;&nbsp;&nbsp;console.log(value);<br>
+                                &#125;);<br>
+                        </div>
+                        <a href="https://github.com/Heroszhen/promise-it-wont-hurt" target="_blank">promise-it-wont-hurt</a>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <h4>fetch</h4>
+                    <div class="border rounded p-2">
+                        <div class="font-weight-bold">
+                            L'API Fetch fournit une interface JavaScript pour l'accès et la manipulation des parties de la pipeline HTTP, comme les requêtes et les réponses. Cela fournit aussi une méthode globale fetch() qui procure un moyen facile et logique de récupérer des ressources à travers le réseau de manière asynchrone.
+                        </div>
+                        fetch(url)<br>
+                        .then(response => response.json())<br>
+                        .then(json => &#123;<br>
+                        &nbsp;&nbsp;&nbsp;....<br>
+                        &#125;);<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,7 @@ import { HomeComponent } from './mycomponents/home/home.component';
 import { SecondnavComponent } from './mycomponents/secondnav/secondnav.component';
 import { PhpcoursComponent } from './mycomponents/phpcours/phpcours.component';
 import { PortfolioComponent } from './mycomponents/portfolio/portfolio.component';
+import { JscoursComponent } from './mycomponents/jscours/jscours.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PortfolioComponent } from './mycomponents/portfolio/portfolio.component
     HomeComponent,
     SecondnavComponent,
     PhpcoursComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    JscoursComponent
   ],
   imports: [
     BrowserModule,
