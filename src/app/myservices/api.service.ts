@@ -12,6 +12,6 @@ export class ApiService extends BasesService{
   }
 
   sendMessage(query:any){
-    return this.http.post(this.server + 'email/sendmail' , JSON.stringify(query));
+    return this.http.post(this.server + 'email/gmail_portefolio' , JSON.stringify(query));
   }
 }

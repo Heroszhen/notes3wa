@@ -14,8 +14,8 @@ export class PortfolioComponent implements OnInit {
   whitenav = false;
   photos = ["html.png" , "css.png","js.png","php.png","bootstrap_logo.png","jquery.png","mysql.png","angular.png","symfony.png","express.png","mongodb.png","github.png"];
   folio = [
-    {"photo":"noteswf3.png","title":"Notes WF3","text":"L'application a été créée en Angular , nous pouvons lire les notes que j'ai prises pendant la formation de wf3."},
-    {"photo":"mygoddess.png","title":"Alexandra Daddario","text":"Le site a été créé dans le but de m'entraîner sur Angular+PHP+Mysql."},
+    {"photo":"si_centraline.png","title":"si.mycentraline.fr","text":"L'application a été créée en Angular , c'est le système informatique en web de Centraline.."},
+    {"photo":"cloud_mobile.png","title":"Cloud de Centraline","text":"Le Cloud de Centraline fait en Ionic."},
     {"photo":"canaljob.png","title":"Canaljob","text":"C'est un site de recherche d'emploi et de formation que j'ai refait en Symfony 4 pendant mon stage chez Canaljob."}
   ];
   bigimg:number = 0;
@@ -60,7 +60,7 @@ export class PortfolioComponent implements OnInit {
   sendMessage(){
     this.msgalert = "";
     this.api.sendMessage(this.message).subscribe((data)=>{
-      if(data["status"] == 1){
+      if(data["status"] == 1 || data["status"] == 200){
         this.msgalert = "<div class='alert alert-primary'>Votre message a été envoyé</div>";
       }
     });
